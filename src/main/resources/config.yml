@@ -1,0 +1,45 @@
+# handler-type : Comment sera stocker l'économie, possibilité : file, mysql, sqlite, json
+# hook-enabled : Laisser en true pour utiliser Vault par exemple.
+# currency : Les symboles de l'économie.
+# currency.format-fractional-digits : Valeur décimale, ici, on aurait en jeu : 2500.00$
+# balance.top-update-period : Délai avant d'update le baltop
+# balance.file-save-period : Délai entre les sauvegardes du stockage de donnée du plugin
+# balance.start-amount: Valeur que le joueur obtiendra sur son compte, lors de sa première connexion au serveur.
+# balance.min-amount : Valeur minimale que le joueur peut avoir, ici 0.0 signifie que le joueur ne peut pas être endetté.
+
+# ⚠︎ Merci de laisser hook-enabled sur true.
+# ⚠︎ La partie "currency" est à modifier avec précautions.
+
+# Voici la liste des placeholders/commandes :
+# %keconomy_balance%                        | Le solde du joueur
+# %kreconomy_balance_formatted%             | Le solde formaté du joueur
+# %keconomy_top%                            | La position actuelle du joueur dans le classement
+# %keconomy_top_name_<number>%              | Le nom du joueur à la position <number> (commence à partir de 1)
+# %keconomy_top_uuid_<number>%              | L'UUID du joueur à la position <number> (commence à partir de 1)
+# %keconomy_top_balance_<number>%           | Le solde du joueur à la position <number> (commence à partir de 1)
+# %keconomy_top_balance_formatted_<number>% | Le solde formaté du joueur à la position <number> (commence à partir de 1)
+
+# Commandes disponibles avec le /eco
+handler-type: file
+
+hook-enabled: true
+
+currency:
+  symbol: $
+  singular: $
+  plural: $
+  format-fractional-digits: 2
+
+balance:
+  top-update-period: 100
+  file-save-period: 200
+  start-amount: 0.0
+  min-amount: 0.0
+
+database:
+  mysql:
+    host: localhost
+    port: '3306'
+    dbname: ''
+    username: root
+    password: ''

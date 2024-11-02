@@ -1,13 +1,12 @@
-name: BetterEconomy
+name: kEconomy
 version: '${project.version}'
-main: me.hsgamer.bettereconomy.BetterEconomy
+main: fr.kirosnn.keconomy.kEconomy
 api-version: 1.13
 softdepend:
   - Vault
   - Treasury
   - PlaceholderAPI
 authors:
-  - HSGamer
-  - takahatashun
+  - kirosnn
 description: ${project.description}
 folia-supported: true
