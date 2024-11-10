@@ -59,3 +59,4 @@ public final class kEconomy extends BasePlugin {
         new Metrics(this, 12981);
     }
 }
+// Amélioration à faire

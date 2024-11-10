@@ -5,6 +5,7 @@ import fr.kirosnn.keconomy.Utils;
 import fr.kirosnn.keconomy.api.EconomyHandler;
 import fr.kirosnn.keconomy.config.MainConfig;
 import fr.kirosnn.keconomy.config.MessageConfig;
+import fr.kirosnn.keconomy.events.TransactionEvent;
 import fr.kirosnn.keconomy.kEconomy;
 import fr.kirosnn.keconomy.provider.EconomyHandlerProvider;
 import me.hsgamer.hscore.bukkit.utils.MessageUtils;
@@ -70,11 +71,16 @@ public class PayCommand extends Command {
 
         economyHandler.withdraw(playerUUID, amount);
         economyHandler.deposit(receiverUUID, amount);
+
+        TransactionEvent event = new TransactionEvent(playerUUID, receiverUUID, amount, TransactionEvent.TransactionType.PAY);
+        instance.getServer().getPluginManager().callEvent(event);
+
         MessageUtils.sendMessage(sender,
                 instance.get(MessageConfig.class).getGiveSuccess()
                         .replace("{balance}", instance.get(MainConfig.class).format(amount))
                         .replace("{name}", Optional.ofNullable(receiver.getName()).orElse(receiverUUID.toString()))
         );
+
         MessageUtils.sendMessage(receiverUUID,
                 instance.get(MessageConfig.class).getReceive()
                         .replace("{balance}", instance.get(MainConfig.class).format(amount))

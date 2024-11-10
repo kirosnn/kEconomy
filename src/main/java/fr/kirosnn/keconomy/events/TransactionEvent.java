@@ -52,6 +52,6 @@ public class TransactionEvent extends Event {
     }
 
     public enum TransactionType {
-        GIVE, PAY
+        GIVE, PAY, SET, TAKE
     }
 }
