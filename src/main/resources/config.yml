@@ -20,6 +20,7 @@
 # %keconomy_top_balance_formatted_<number>% | Le solde formaté du joueur à la position <number> (commence à partir de 1)
 
 # Commandes disponibles avec le /eco
+
 handler-type: file
 
 hook-enabled: true
